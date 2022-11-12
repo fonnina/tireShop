@@ -10,9 +10,24 @@ if(isset($_POST['poslatiPodaci'])){
     <th scope="col"> Količina</th>
     <th scope="col"> Vrsta</th>
     <th scope="col"> Cijena</th>
-    <th scope="col"> Op</th>
+    <th scope="col"> Operacije</th>
   </tr>
-    </thead>';
+    </thead>
+    <nav aria-label="...">
+  <ul class="pagination">
+    <li class="page-item disabled">
+      <a class="page-link">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active" aria-current="page">
+      <a class="page-link" href="#">2</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>';
   $sql="Select * from `gume`"; //query
   $result=mysqli_query($conn,$sql);
   $num=1;
@@ -31,12 +46,12 @@ if(isset($_POST['poslatiPodaci'])){
     <td>'.$vrsta.'</td>
     <td>'.$cijena.'</td>
     <td>
-  <button class="button" onclick="otvoriAzuriraj('.$id.')">Izmijeni</button>
-  <button class="btn" onclick="izbrisiProizvod('.$id.')">Izbrisi</button>
-</td>
+   <button class="button" onclick="otvoriAzuriraj('.$id.')">Izmijeni</button>
+   <button class="btn" onclick="izbrisiProizvod('.$id.')">Izbriši</button>
+  </td>
 
   </tr>';
-$num++;
+  $num++;
   }
   $table.='</table>'; //zatvaranje tabele
   echo $table;
