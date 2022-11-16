@@ -139,8 +139,9 @@
 
 <div class="container my-3" >
     <h1 class="text-center">Andrijašević DB </h1>
-    
-  
+     <h1>Dobrodošli <?php echo $_COOKIE["KorisnikCookie"];?></h1>
+    <!--$user["ime"]  -->
+
 <div class="container">
 <div class="row">
   <div class="col-10"> 

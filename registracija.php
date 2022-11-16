@@ -1,31 +1,6 @@
 <?php
  include 'funkcija.php';
 
-// if(isset($_POST["submit"])){
-//   $ime =$_POST["ime"];
-//   $username =$_POST["username"];
-//   $email =$_POST["email"];
-//   $lozinka =$_POST["lozinka"];
-//   $potvrdnalozinka =$_POST["potvrdnalozinka"];
-//   $duplikat= mysqli_num_rows($conn, "select * from korisnik where username='$username' OR email='$email'");
-
-//   if(mysqli_num_rows($duplikat)>0){
-//     echo "<script> alert('Username ili Email su zauzeti'); </script>";
-//   }
-//   else{
-//     if($lozinka == $potvrdnalozinka){
-//       $query="INSERT INTO korisnik values('','$ime','$username','$email','$lozinka')";
-//       mysqli_query($conn,$query);
-//       echo
-//     "<script> alert('Registracija uspjesna!'); </script>";
-//     }
-//     else{
-//       "<script> alert('Lozinke se ne podudaraju'); </script>";
-
-//     }
-//   }
-// }
-
 $register = new Registrovanje();
 
 if(isset($_POST["submit"])){

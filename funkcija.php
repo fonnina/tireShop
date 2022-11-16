@@ -35,17 +35,19 @@ class Prijavljivanje{
     if(mysqli_num_rows($result) > 0){
       if($lozinka == $row["lozinka"]){
         $this->id = $row["id"];
+        setcookie("KorisnikCookie",$usernameemail,time() + 3600);
+
         return 1;
-        // Login successful
+        // Prijava uspjesna
       }
       else{
         return 10;
-        // Wrong password
+        // Pogresna lozinka
       }
     }
     else{
       return 100;
-      // User not registered
+      // Korisnik nije registrovan
     }
   }
 

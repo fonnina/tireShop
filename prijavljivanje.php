@@ -1,8 +1,9 @@
 <?php
 require 'funkcija.php';
 
+
 if(!empty($_SESSION["id"])){
-  header("Location: index.php");
+  header("Location: home.php");
 }
 
 $login = new Prijavljivanje();
@@ -23,6 +24,7 @@ if(isset($_POST["submit"])){
     echo
     "<script> alert('Korisnik nije registrovan'); </script>";
   }
+
 }
 ?>
 <!DOCTYPE html>

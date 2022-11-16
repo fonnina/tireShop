@@ -17,7 +17,7 @@ else{
     <title>Index</title>
   </head>
   <body>
-    <h1>Dobrodošli! <?php echo $user["ime"]; ?></h1>
+    <h1>Dobrodošli! </h1>
     <a href="logout.php">Logout</a>
   </body>
 </html> -->

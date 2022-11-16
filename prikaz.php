@@ -1,7 +1,7 @@
 <?php
 include 'dbBroker.php';
 if(isset($_POST['poslatiPodaci'])){
-    $table='<table class="table table-dark">
+    $table='<table id=tabela class="table table-dark">
     <thead>
     <tr class="table-active">
     <th scope="col"> ID</th>
@@ -12,22 +12,7 @@ if(isset($_POST['poslatiPodaci'])){
     <th scope="col"> Cijena</th>
     <th scope="col"> Operacije</th>
   </tr>
-    </thead>
-    <nav aria-label="...">
-  <ul class="pagination">
-    <li class="page-item disabled">
-      <a class="page-link">Previous</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item active" aria-current="page">
-      <a class="page-link" href="#">2</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Next</a>
-    </li>
-  </ul>
-</nav>';
+    </thead>';
   $sql="Select * from `gume`"; //query
   $result=mysqli_query($conn,$sql);
   $num=1;
@@ -59,3 +44,57 @@ if(isset($_POST['poslatiPodaci'])){
 }
 
 ?>
+<script> 
+th = document.getElementsByTagName('th');
+
+for(let c=0; c < th.length; c++){
+
+    th[c].addEventListener('click',item(c))
+}
+
+
+function item(c){
+
+    return function(){
+      console.log(c)
+      sortTable(c)
+    }
+}
+
+
+function sortTable(c) {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("tabela");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[c];
+      y = rows[i + 1].getElementsByTagName("TD")[c];
+      //check if the two rows should switch place:
+      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+
+</script>
